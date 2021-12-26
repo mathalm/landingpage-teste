@@ -16,7 +16,7 @@
   justify-content: center;
   font-size: 14px;
   font-weight: 600;
-  margin-left: 675px;
+  margin:auto;
   color: white;
 }
 .nav-div-buscar-leads:nth-child(2n):hover {
