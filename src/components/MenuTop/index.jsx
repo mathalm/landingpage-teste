@@ -8,7 +8,7 @@ function MenuTop() {
   return (
     <nav className="nav-principal">
       <div className="nav-div-buscar-leads">
-          <FaSearch size="17" className="FaSearch" color="white"/>
+          <FaSearch size="17" className="FaSearch" />
         <input type="search" name="search" placeholder="Buscar Leads" />
       </div>
       <div className="nav-conjuto-lado-direito">

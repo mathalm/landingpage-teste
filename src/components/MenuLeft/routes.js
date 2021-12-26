@@ -3,7 +3,7 @@ import {
     Routes,
     Route,
 } from 'react-router-dom'
-import Secundary from '../../Secundary';
+import Secundary from '../Secundary';
 import InitialPage from '../InitialPage';
 
 export default function Mainroutes(){

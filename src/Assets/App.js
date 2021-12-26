@@ -1,7 +1,7 @@
 import React from "react";
 import "./globalStyle.css";
 import { BrowserRouter as Router } from "react-router-dom";
-import  Routes  from "../components/InitialPage/MenuLeft/routes";
+import  Routes  from "../components/MenuLeft/routes";
 import MenuLeft from '../components/MenuLeft';
 import MenuTop from '../components/MenuTop';
 

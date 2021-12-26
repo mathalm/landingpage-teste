@@ -17,6 +17,7 @@
   font-size: 14px;
   font-weight: 600;
   margin-left: 675px;
+  color: white;
 }
 .nav-div-buscar-leads:nth-child(2n):hover {
   color: black;
@@ -28,7 +29,6 @@
   border: none;
   padding: 3px 40px;
   font-size: 15px;
-  color: white;
 }
 .nav-div-buscar-leads input:hover {
   background-color: white;
