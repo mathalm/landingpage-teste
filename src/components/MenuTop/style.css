@@ -1,0 +1,68 @@
+.nav-principal {
+  grid-area: MT;
+  background-color: #394554;
+  height: 57px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+/* ------------------------Buscar leads-------------------------------- */
+.nav-div-buscar-leads {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 675px;
+}
+.nav-div-buscar-leads:nth-child(2n):hover {
+  color: black;
+}
+.nav-div-buscar-leads input {
+  background-color: #333e4b;
+  width: 280px;
+  height: 40px;
+  border: none;
+  padding: 3px 40px;
+  font-size: 15px;
+  color: white;
+}
+.nav-div-buscar-leads input:hover {
+  background-color: white;
+  color: black;
+}
+.nav-div-buscar-leads input:focus {
+  background-color: white;
+  border: none;
+}
+.FaSearch {
+  position: relative;
+  left: 30px;
+}
+/* -------------------------Conjuto lado direito------------------------------- */
+.nav-conjuto-lado-direito {
+  width: 266px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.MdPhone,
+.FaWhatsapp {
+  cursor: pointer;
+  width: 40px;
+}
+.nav-div-menu-perfil {
+  display: flex;
+  color: rgba(255, 255, 255, 0.76);
+  font-weight: normal;
+  font-size: 14px;
+  cursor: pointer;
+}
+.nav-div-menu-perfil img {
+  width: 32px;
+  border-radius: 50%;
+  margin-right: 5px;
+}

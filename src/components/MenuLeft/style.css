@@ -1,0 +1,60 @@
+.menuLeft{
+    grid-area: ML;
+    background-color: #394554;
+    height: 100vh;
+    width: 51px;
+    transition: 0.5s ;
+    display: flex;
+    justify-content: start;
+    margin: 0;
+
+
+    z-index: 1000;
+    position: fixed;
+    left: 252px;
+    top: 0px;
+    height: 100%;
+    margin-left: -252px;
+    overflow: hidden;
+    background: #394554;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.menuLeft:hover{
+    width: 266px;
+}
+.nav-div-logo-spotter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  left: 6px;
+  top: 5px;
+}
+.div-lista-ferramentas{
+    width: 100%;
+    height: max-content;
+    color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.div-item-menu-left{
+    width: 100%;
+    height: 45px;
+    padding-left:15px ;
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    transition: 0.1s;
+    cursor: pointer;
+}
+.div-item-menu-left:hover{
+    background-color: #28313b;
+}
+
