@@ -28,82 +28,93 @@ function MenuLeft() {
           <div className="nav-div-logo-spotter">
             <img src={logoSpotter} alt="" />
           </div>
-          <div className="div-item-menu-left">
+          <div className="div-item-menu-left" onClick={() => navigate("/DashBoard")}>
             <MdDashboard
-              className="dashboard"
+              className="icon-span"
               size="25px"
-              onClick={() => navigate("/DashBoard")}
+              
             />
+            <div className="div-span-name-menu"><span className="icon-span">Dashboard</span></div>
           </div>
-          <div className="div-item-menu-left">
+          <div className="div-item-menu-left" onClick={() => navigate("/Agenda")}>
             <MdPermContactCalendar
-              className="dashboard"
+              className="icon-span"
               size="25px"
-              onClick={() => navigate("/Agenda")}
+              
             />
+            <div className="div-span-name-menu"><span className="icon-span">Agenda</span></div>
           </div>
-          <div className="div-item-menu-left">
+          <div className="div-item-menu-left" onClick={() => navigate("/Leads")}>
             <MdPeopleAlt
-              className="dashboard"
+              className="icon-span"
               size="25px"
-              onClick={() => navigate("/Leads")}
+              
             />
+            <div className="div-span-name-menu"><span className="icon-span">Leads</span></div>
           </div>
-          <div className="div-item-menu-left">
+          <div className="div-item-menu-left" onClick={() => navigate("/Searching")}>
             <MdPersonSearch
-              className="dashboard"
+              className="icon-span"
               size="25px"
-              onClick={() => navigate("/Searching")}
+              
             />
+            <div className="div-span-name-menu"><span className="icon-span">Searching</span></div>
           </div>
-          <div className="div-item-menu-left">
+          <div className="div-item-menu-left" onClick={() => navigate("/Atividades")}>
             <AiFillBell
-              className="dashboard"
+              className="icon-span"
               size="25px"
-              onClick={() => navigate("/Atividades")}
+             
             />
+            <div className="div-span-name-menu"><span className="icon-span">Atividades</span></div>
           </div>
-          <div className="div-item-menu-left">
+          <div className="div-item-menu-left" onClick={() => navigate("/CadenciaDeEmails")}>
             <IoMdSend
-              className="dashboard"
+              className="icon-span"
               size="25px"
-              onClick={() => navigate("/CadenciaDeEmails")}
+             
             />
+            <div className="div-span-name-menu"><span className="icon-span">Cadência de E-mails</span></div>
           </div>
-          <div className="div-item-menu-left">
+          <div className="div-item-menu-left"  onClick={() => navigate("/BusinessAnalytics")}>
             <MdAnalytics
-              className="dashboard"
+              className="icon-span"
               size="25px"
-              onClick={() => navigate("/BusinessAnalytics")}
+             
             />
+            <div className="div-span-name-menu"><span className="icon-span">Business Analytics</span></div>
           </div>
-          <div className="div-item-menu-left">
+          <div className="div-item-menu-left" onClick={() => navigate("/Pontuacao")}>
             <MdAttachMoney
-              className="dashboard"
+              className="icon-span"
               size="25px"
-              onClick={() => navigate("/Pontuacao")}
+              
             />
+            <div className="div-span-name-menu"><span className="icon-span">Pontuação</span></div>
           </div>
-          <div className="div-item-menu-left">
+          <div className="div-item-menu-left" onClick={() => navigate("/Telefonia")}>
             <FaPhoneAlt
-              className="dashboard"
+              className="icon-span"
               size="25px"
-              onClick={() => navigate("/Telefonia")}
+              
             />
+            <div className="div-span-name-menu"><span className="icon-span">Telefonia</span></div>
           </div>
-          <div className="div-item-menu-left">
+          <div className="div-item-menu-left" onClick={() => navigate("/Workflow")}>
             <SiCommonworkflowlanguage
-              className="dashboard"
+              className="icon-span"
               size="25px"
-              onClick={() => navigate("/Workflow")}
+              
             />
+            <div className="div-span-name-menu"><span className="icon-span">Workflow</span></div>
           </div>
-          <div className="div-item-menu-left">
+          <div className="div-item-menu-left" onClick={() => navigate("/Configuracoes")}>
             <BsFillGearFill
-              className="dashboard"
+              className="icon-span"
               size="25px"
-              onClick={() => navigate("/Configuracoes")}
+             
             />
+            <div className="div-span-name-menu"><span className="icon-span">Configuraçõe</span></div>
           </div>
         </div>
       </div>
