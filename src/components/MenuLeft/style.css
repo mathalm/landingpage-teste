@@ -52,12 +52,12 @@
     margin-top: 10px;
     transition: 0.1s;
     cursor: pointer;
-    display: block;
     display: flex;
     flex-direction: row;
     align-items: center;
     position: relative;
     right: 7px;
+    white-space: nowrap;
 }
 .div-item-menu-left:hover{
     background-color: #28313b;
@@ -69,8 +69,5 @@
     min-width:70px;
 }
 .div-span-name-menu{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
