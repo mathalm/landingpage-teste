@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom'
 import Secundary from '../Secundary';
 import InitialPage from '../InitialPage';
+import LandingPage from '../LandingPage';
 
 export default function Mainroutes(){
     return(
@@ -20,6 +21,7 @@ export default function Mainroutes(){
             <Route path="/Telefonia" element={<Secundary/>} />
             <Route path="/Workflow" element={<Secundary/>} />
             <Route path="/Configuracoes" element={<Secundary/>} />
+            <Route path="/LandingPage" element={<LandingPage/>} />
         </Routes>
     )
 }

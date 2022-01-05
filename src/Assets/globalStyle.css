@@ -9,6 +9,7 @@
 }
 .App {
   background-color: #eaeaea;
-  height: 100vh;
+  min-height: 90vh;
   margin-left: 51px;
+  margin-top: 55px;
 }

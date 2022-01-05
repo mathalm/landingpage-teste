@@ -1,12 +1,10 @@
 .menuLeft{
-    grid-area: ML;
     background-color: #394554;
-    height: 100vh;
+    height: 900px;
     width: 51px;
     transition: 0.5s ;
     display: flex;
     margin: 0;
-
 
     z-index: 1000;
     position: fixed;
@@ -14,12 +12,18 @@
     top: 0px;
     height: 100%;
     margin-left: -252px;
-    overflow: hidden;
+    overflow: auto;
+    overflow-x: hidden;
     background: #394554;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+
+    
+}
+.menuLeft::-webkit-scrollbar {
+    width: 0.1px;
 }
 
 .menuLeft:hover{
@@ -41,15 +45,16 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    /* justify-content: center; */
     position: absolute;
     top: 0;
     left:0;
 }
+
 .div-item-menu-left{
     width: 100%;
-    height: 40px;
-    margin-top: 10px;
+    height: 45px;
+    margin-top: 5px;
     transition: 0.1s;
     cursor: pointer;
     display: flex;
@@ -68,6 +73,5 @@
     font-size: 15px;
     min-width:70px;
 }
-.div-span-name-menu{
-}
+
 
