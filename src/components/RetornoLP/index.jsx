@@ -8,10 +8,10 @@ import Header from './HeaderLP';
 function RetornoLP() {
   const navigate = useNavigate();
   const existsLP = false;
-
+  const titulo = 'Landing Page'
   return (
     <main>
-      <Header/>
+      <Header titulo={titulo}/>
       <section className='retornoLp'>
         {!!existsLP ? (
           <LandingPages />

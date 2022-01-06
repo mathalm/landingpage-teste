@@ -8,6 +8,7 @@ import InitialPage from '../components/InitialPage';
 import RetornoLP from '../components/RetornoLP'
 // import LandingPages from '../templates/LandingPages';
 import CriarLP from '../templates/CriarLP';
+import LpEducacao from '../templates/LandingPages/LpEducacao';
 export default function Mainroutes(){
     return(
         <Routes>
@@ -26,6 +27,9 @@ export default function Mainroutes(){
             <Route path="/RetornoLP" element={<RetornoLP/>} />
             {/* Button Criar LP */}
             <Route path="/CriarLP" element={<CriarLP/>} />
+            {/* Rotas das LP's prontas */}
+            <Route path="/LpEducacao" element={<LpEducacao/>} />
+
         </Routes>
     )
 }

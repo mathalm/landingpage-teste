@@ -1,0 +1,65 @@
+.sectionCriarLP{
+  /* height: 450px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.div-engloba-outras-div{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.div-template-global{
+  background-color: rgb(178, 226, 210);
+  width: 230px;
+  height: 150px;
+  border: solid 2px rgba(0, 0, 0, 0.336);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: crosshair;
+  transition: transform 200ms ease-in-out ;
+}
+.div-template-global:hover{
+  transform: scale(1.05);
+}
+.div-template-global p{
+  font-size: 22px;
+  font-weight: 800;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+/* -------------------imagens de background------------------- */
+.educacao{
+  background-image: url(../../images/background-educacao.jpg);
+  background-size: cover;
+}
+.evento{
+  background-image: url(../../images/background-evento-video.jpg);
+  background-size: cover;
+}
+.pet{
+  background-image: url(../../images/background-pet-shop.jpg);
+  background-size: cover;
+}
+.curso{
+  background-image: url(../../images/background-cursos.jpg);
+  background-size: cover;
+}
+.imobiliaria{
+  background-image: url(../../images/background-imobiliaria.jpg);
+  background-size: cover;
+}
+.visita{
+  background-image: url(../../images/background-visita.jpg);
+  background-size: cover;
+}
+.vendas{
+  background-image: url(../../images/background-vendas.jpg);
+  background-size: cover;
+}
+
+
+
