@@ -1,0 +1,42 @@
+.retornoLp{
+ width: 100%;
+ height: 100%;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+.div-existFalse{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+}
+.div-existFalse h3{
+ text-align: center;
+}
+.imageLP{
+ width: 500px;
+}
+@media screen and (max-width:600px) {
+ .imageLP{
+  width: 300px;
+ }
+ 
+}
+.buttonExists{
+ background-color: #286090;
+ color: rgb(238, 238, 238);
+ width: max-content;
+ height: 32px;
+ margin-top: 20px;
+ padding: 0 10px;
+ font-weight: 600;
+ text-transform: uppercase;
+ cursor: pointer;
+ border: none;
+ box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.438);
+}
+.buttonExists:hover{
+  opacity: 70%;
+}

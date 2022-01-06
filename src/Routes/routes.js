@@ -3,13 +3,15 @@ import {
     Routes,
     Route,
 } from 'react-router-dom'
-import Secundary from '../Secundary';
-import InitialPage from '../InitialPage';
-import LandingPage from '../LandingPage';
-
+import Secundary from '../components/Secundary';
+import InitialPage from '../components/InitialPage';
+import RetornoLP from '../components/RetornoLP'
+// import LandingPages from '../templates/LandingPages';
+import CriarLP from '../templates/CriarLP';
 export default function Mainroutes(){
     return(
         <Routes>
+            {/* Menu left */}
             <Route path="/Dashboard" element={<InitialPage/>}/>
             <Route path="/Agenda" element={<Secundary/>} />
             <Route path="/Leads" element={<Secundary/>} />
@@ -21,7 +23,9 @@ export default function Mainroutes(){
             <Route path="/Telefonia" element={<Secundary/>} />
             <Route path="/Workflow" element={<Secundary/>} />
             <Route path="/Configuracoes" element={<Secundary/>} />
-            <Route path="/LandingPage" element={<LandingPage/>} />
+            <Route path="/RetornoLP" element={<RetornoLP/>} />
+            {/* Button Criar LP */}
+            <Route path="/CriarLP" element={<CriarLP/>} />
         </Routes>
     )
 }
