@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css'
+import { Button } from '@material-ui/core'
 
 function Header({titulo}) {
   return (
@@ -8,7 +9,7 @@ function Header({titulo}) {
         <h2>{titulo}</h2>
       </div>
       <div className='div-barra'>
-       <button className='button-header'>Landing Page</button>
+      <div className='divButtom'><Button className="buttonHeader" variant="text" color="inherit">Templates</Button></div>
       </div>
     </header>
   )
