@@ -16,7 +16,7 @@ import { SiCommonworkflowlanguage } from "react-icons/si";
 import { BsFillGearFill } from "react-icons/bs";
 import { RiPagesFill} from "react-icons/ri";
 
-import { useNavigate } from "react-router-dom";
+  import { useNavigate } from "react-router-dom";
 import logoSpotter from "../../images/logoSpotter.png";
 
 function MenuLeft() {
@@ -40,7 +40,7 @@ function MenuLeft() {
           </div>
           <div
             className="div-item-menu-left"
-            onClick={() => navigate("/Agenda")}
+            onClick={() => navigate("/Agenda")} 
           >
             <MdPermContactCalendar className="icon-span" size="25px" />
             <div className="div-span-name-menu">

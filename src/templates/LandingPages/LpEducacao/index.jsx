@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../../../components/RetornoLP/HeaderLP';
 import './style.css'
+import TemplateLpEducacao from './TemplateLpEducacao';
 
 function LpEducacao() {
   const [valorWidth, setValorWidth] = useState(0);
@@ -20,10 +21,12 @@ const styles = {
   return (
     < section >
       <Header titulo={titulo} />
-      <div className='div-teste' style={styles} >
-        teste
-      </div>
-      <input type="number" placeholder='Numero' onChange={handleValorWidth} />
+     <div className='div-configuracao-geral'>
+       <div className='div-demonstracao-lp'>
+         <TemplateLpEducacao/>
+       </div>
+       <div className='div-configuracao-lp'></div>
+     </div>
     </section>
   )
 }

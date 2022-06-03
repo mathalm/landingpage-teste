@@ -1,9 +1,10 @@
 import React from 'react';
-import './style.css';
-import imglp from "../../images/imgLP.png"
 import { useNavigate } from "react-router-dom";
+import Button from '@mui/material/Button';
+import construcaosite from "../../images/construcaoSite.svg"
 import LandingPages from '../../templates/LandingPages';
 import Header from './HeaderLP';
+import './style.css';
 
 function RetornoLP() {
   const navigate = useNavigate();
@@ -17,9 +18,9 @@ function RetornoLP() {
           <LandingPages />
         ) : (
           <div className='div-existFalse'>
-            <img className='imageLP' src={imglp} alt='imageLP'></img>
+            <img className='imageLP' src={construcaosite} alt='imageLP'></img>
             <h3>Crie a sua LP e prospecte leads de forma fácil e rápida</h3>
-            <button className='buttonExists' onClick={() => navigate("/CriarLP")}>Criar Landing Page</button>
+            <Button className='buttonExists' onClick={() => navigate("/CriarLP")}>Criar Landing Page</Button>
           </div>
         )}
       </section>

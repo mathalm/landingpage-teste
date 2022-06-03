@@ -2,3 +2,22 @@
   background-color: aqua;
   transition: 1s ease-in-out;
 }
+.div-configuracao-geral{
+  display: flex;
+  justify-content: space-between;
+}
+.div-demonstracao-lp{
+  background-color: rgb(250, 250, 250);
+  width: 970px;
+  height: 800px;
+  border: solid 1px rgba(0, 0, 0, 0.233);
+}
+.div-configuracao-lp{
+  background-color: aquamarine;
+  width: 350px;
+  height: 510px;
+  border: solid 1px rgba(0, 0, 0, 0.233);
+  position: sticky;
+  top: 57px;
+
+}

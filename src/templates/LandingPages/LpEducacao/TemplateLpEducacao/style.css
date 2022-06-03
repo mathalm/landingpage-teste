@@ -1,0 +1,54 @@
+.nav-template-LpEducacao{
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 20px;
+}
+.div-logo-lpEducacao{
+  display: flex;
+}
+.div-menu-direita-lpEducacao ul{
+  display: flex;
+}
+.div-menu-direita-lpEducacao ul li{
+  margin: 0 10px;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: blue;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 3px;
+}
+.div-menu-direita-lpEducacao ul li:hover{
+  background-color: aliceblue;
+}
+/* ---------------------------main------------------------------- */
+.main-template-LpEducacao{
+  width: 100%;
+  height: 500px;
+  background-image: url(../../../../images/background-template-lpEducacao.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: flex-end;
+}
+.entrada-dados-LpEducacao{
+  background-color: rgb(108, 146, 133);
+  width: 250px;
+  height: max-content;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 50px;
+  margin-top: 30px;
+}
+.div-dentro-entrada-LpEducacao{
+  width: 240px;
+}
+.div-dentro-entrada-LpEducacao div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}

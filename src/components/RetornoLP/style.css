@@ -1,22 +1,24 @@
 .retornoLp{
  width: 100%;
- height: 100%;
+ height: 25rem;
  display: flex;
  flex-direction: column;
  justify-content: center;
  align-items: center;
+ /* background-color: #286090; */
 }
 .div-existFalse{
  display: flex;
  justify-content: center;
  align-items: center;
  flex-direction: column;
+ height: 100%;
 }
 .div-existFalse h3{
  text-align: center;
 }
 .imageLP{
- width: 500px;
+ width: 400px;
 }
 @media screen and (max-width:600px) {
  .imageLP{

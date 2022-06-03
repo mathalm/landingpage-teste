@@ -17,7 +17,7 @@ export default function Mainroutes(){
             <Route path="/Agenda" element={<Secundary/>} />
             <Route path="/Leads" element={<Secundary/>} />
             <Route path="/Searching" element={<Secundary/>} />
-            <Route path="/Atividades" element={<Secundary/>} />
+            <Route path="/Atividades" element={<Secundary/>} /> 
             <Route path="/CadenciaDeEmails" element={<Secundary/>} />
             <Route path="/BusinessAnalytics" element={<Secundary/>} />
             <Route path="/Pontuacao" element={<Secundary/>} />
