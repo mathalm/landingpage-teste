@@ -25,10 +25,10 @@ function MenuLeft() {
   return (
     <>
       <div className="menuLeft">
-        <div className="div-lista-ferramentas">
           <div className="nav-div-logo-spotter">
             <img src={logoSpotter} alt="" />
           </div>
+        <div className="div-lista-ferramentas">
           <div
             className="div-item-menu-left"
             onClick={() => navigate("/DashBoard")}
@@ -134,7 +134,7 @@ function MenuLeft() {
           >
             <BsFillGearFill className="icon-span" size="25px" />
             <div className="div-span-name-menu">
-              <span className="icon-span">Configuraçõe</span>
+              <span className="icon-span">Configurações</span>
             </div>
           </div>
           

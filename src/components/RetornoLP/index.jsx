@@ -20,7 +20,7 @@ function RetornoLP() {
           <div className='div-existFalse'>
             <img className='imageLP' src={construcaosite} alt='imageLP'></img>
             <h3>Crie a sua LP e prospecte leads de forma fácil e rápida</h3>
-            <Button className='buttonExists' onClick={() => navigate("/CriarLP")}>Criar Landing Page</Button>
+            <Button className='buttonExists' variant="contained" onClick={() => navigate("/CriarLP")}>Criar Landing Page</Button>
           </div>
         )}
       </section>

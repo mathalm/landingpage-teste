@@ -21,6 +21,7 @@
   justify-content: center;
   cursor: crosshair;
   transition: transform 200ms ease-in-out ;
+  border-radius: 5px;
 }
 .div-template-global:hover{
   transform: scale(1.05);
@@ -33,7 +34,7 @@
 }
 /* -------------------imagens de background------------------- */
 .educacao{
-  background-image: url(../../images/background-educacao.jpg);
+  background-image: url(../../images/background-template-lpEducacaoCopia.png);
   background-size: cover;
 }
 .evento{

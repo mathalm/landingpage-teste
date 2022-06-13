@@ -12,21 +12,13 @@ function LpEducacao() {
     setValorWidth(event.target.value)
     console.log(valorWidth);
   };
-  
-const styles = {
-    width: 350 + 'px',
-    height: valorWidth + 'px',
-  }
+
 
   return (
     < section >
       <Header titulo={titulo} />
-     <div className='div-configuracao-geral'>
-       <div className='div-demonstracao-lp'>
-         <TemplateLpEducacao/>
-       </div>
-       <div className='div-configuracao-lp'></div>
-     </div>
+
+      <TemplateLpEducacao />
     </section>
   )
 }
