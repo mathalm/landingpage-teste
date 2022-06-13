@@ -9,9 +9,7 @@ import { BsPlusCircleFill } from 'react-icons/bs'
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import Box from '@mui/material/Box';
 import './style.css';
 
 function TemplateLpEducacao() {
@@ -56,17 +54,6 @@ function TemplateLpEducacao() {
       })
     )
   }
-
-  const handleVerificarCheck = (campo) => {
-    if (camposSelecionados.includes(campo)) {
-      console.log('inclui');
-      return false;
-    }else{
-      console.log('nao');
-      return true;
-    }
-  }
-
   const handleMudarValorCheck = (campo) => {
     if (camposSelecionados.includes(campo)) {
       const index = camposSelecionados.indexOf(campo);
