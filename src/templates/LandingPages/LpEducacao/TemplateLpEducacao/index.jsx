@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
@@ -12,13 +12,24 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import './style.css';
 
-function TemplateLpEducacao() {
+function TemplateLpEducacao({setDadosConfiguracaoLandingPage}) {
 
   const [image, setImage] = useState();
   const [definirSrcImage, setDefinirSrcImage] = useState(true);
   const [camposPersonalizados, setCamposPersonalizados] = useState([]);
   const [camposSelecionados, setCamposSelecionados] = useState([]);
   const [open, setOpen] = useState(false);
+  const tituloApresentacao = useRef('[Ebook]');
+  const tituloEntradaDados = useRef('Preencha o formulário para receber novidades! 🤩');
+
+  useEffect(() =>{
+    setDadosConfiguracaoLandingPage({
+      tituloApresentacao:tituloApresentacao,
+      tituloEntradaDados:tituloEntradaDados,
+      camposSelecionados:camposSelecionados
+    })
+    
+  },[tituloApresentacao,tituloEntradaDados, camposSelecionados])
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -48,7 +59,7 @@ function TemplateLpEducacao() {
         return (
           <div key={campo.id}>
             <Checkbox checked={camposSelecionados.includes(campo.name) ? true : false} inputProps={{ 'aria-label': 'controlled' }} onChange={() => { handleMudarValorCheck(campo.name) }} />
-            {campo.name} {campo.id}
+            {campo.name}
           </div>
         )
       })
@@ -57,13 +68,10 @@ function TemplateLpEducacao() {
   const handleMudarValorCheck = (campo) => {
     if (camposSelecionados.includes(campo)) {
       const index = camposSelecionados.indexOf(campo);
-      console.log(index);
       const teste = camposSelecionados.splice(index, 1)
-      console.log(teste);
       setCamposSelecionados([...camposSelecionados])
       return
     } else {
-      console.log(campo);
       setCamposSelecionados([...camposSelecionados, campo])
     }
   }
@@ -71,6 +79,7 @@ function TemplateLpEducacao() {
   const handleCamposPersonalizadosEscolhidos = () => {
     return (
       camposSelecionados.map((campo, index) => {
+        console.log(camposSelecionados);
         return (
           <div key={index} className='div-engloba-div-input'>
             <div >
@@ -84,7 +93,6 @@ function TemplateLpEducacao() {
 
   const handleInputImg = (event) => {
     setDefinirSrcImage(false)
-    console.log(definirSrcImage);
 
     const reader = new FileReader();
     reader.onload = () => {
@@ -110,14 +118,14 @@ function TemplateLpEducacao() {
       <div className='div-cabecalho-lp-educacao'>
         <div className='div-cabecalho-lp-educacao-apresentacao'>
           <div>
-            <textarea defaultValue={"[EBook]"} className='textarea-titulo'></textarea>
+            <textarea onChange={(e) => {tituloApresentacao.current = e.target.value}}  defaultValue={tituloApresentacao.current} className='textarea-titulo'></textarea>
             <h4>Como estudar para a faculdade dos sonhos?</h4>
           </div>
           <p>Você está a um passo de viajar, realizar seu sonho de infância, mas ainda tem dificuldades em guardar dinheiro para a tão sonhada trip. Esse EBook foi feito para você!</p>
         </div>
         <div className='div-cabecalho-lp-educacao-entrada-dados'>
           <div className='div-textarea'>
-            <textarea defaultValue={'Preencha o formulário para receber novidades! 🤩'}></textarea>
+            <textarea onChange={(e) => {tituloEntradaDados.current = e.target.value}}  defaultValue={tituloEntradaDados.current}></textarea>
           </div>
           <div className='div-engloba-textfield'>
             <div className='div-engloba-div-input'>
@@ -152,7 +160,7 @@ function TemplateLpEducacao() {
             <p>Ao informar meus dados, eu concordo com a Política de Privacidade.</p>
           </div>
           <div>
-            <Button variant="contained" component="span">
+            <Button variant="contained" component="span" onClick={() =>console.log(tituloApresentacao.current, '+', tituloEntradaDados.current)}>
               Receber novidades
             </Button>
           </div>

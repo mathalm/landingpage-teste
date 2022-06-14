@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../../components/RetornoLP/HeaderLP';
 import './style.css'
 import TemplateLpEducacao from './TemplateLpEducacao';
@@ -6,11 +6,13 @@ import TemplateLpEducacao from './TemplateLpEducacao';
 function LpEducacao() {
   const titulo = 'LP de Educação'
 
+  const [dadosConfiguracaoLandingPage, setDadosConfiguracaoLandingPage] = useState({})
+
   return (
     < section >
-      <Header titulo={titulo} />
+      <Header titulo={titulo} dadosConfiguracaoLandingPage={dadosConfiguracaoLandingPage} />
 
-      <TemplateLpEducacao />
+      <TemplateLpEducacao setDadosConfiguracaoLandingPage={setDadosConfiguracaoLandingPage} />
     </section>
   )
 }
