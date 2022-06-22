@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../RetornoLP/HeaderLP';
+import Header from '../../Utils/HeaderLP';
 import './style.css'
 
 function Secundary(){

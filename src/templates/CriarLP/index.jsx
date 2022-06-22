@@ -1,21 +1,30 @@
 import React from 'react';
 import './style.css'
 import { AiOutlinePlus } from 'react-icons/ai'
-import Header from '../../components/RetornoLP/HeaderLP';
+import Header from '../../Utils/HeaderLP';
 import { useNavigate } from 'react-router-dom';
 
 function CriarLP() {
-  const titulo = 'Escolha o template que você deseja'
+  const titulo = ['Escolha o template que você deseja'];
+  const botoes = ['Criar'];
   const navigate = useNavigate();
+  const [value, setValue] = React.useState("0");
+  console.log(value);
+  const props = {
+    titulo: titulo,
+    botoes: botoes,
+    setValue: setValue,
+    value: value
+  }
   return (
     <section className='sectionCriarLP'>
-      <Header titulo={titulo}/>
+      <Header props={props}/>
       <div className='div-engloba-outras-div'>
         <div className='div-template-global'>
           <p>Crie sua LP</p>
           <AiOutlinePlus size={23}/>
         </div>
-        <div className='div-template-global educacao' onClick={() => navigate('/LpEducacao')}>
+        <div className='div-template-global educacao' onClick={() => navigate('/Layout/Ebook')}>
           <p>Educação</p>
         </div>
         <div className='div-template-global evento'>

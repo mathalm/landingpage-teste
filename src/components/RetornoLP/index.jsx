@@ -2,20 +2,28 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import construcaosite from "../../images/construcaoSite.svg"
-import LandingPages from '../../templates/LandingPages';
-import Header from './HeaderLP';
+import Header from '../../Utils/HeaderLP';
 import './style.css';
 
 function RetornoLP() {
   const navigate = useNavigate();
   const existsLP = false;
-  const titulo = 'Landing Page'
+  const titulo = ['RetornoLP']
+  const botoes = ['RetornoLP']
+  const [value, setValue] = React.useState("0");
+  console.log(value);
+  const props = {
+    titulo: titulo,
+    botoes: botoes,
+    setValue: setValue,
+    value: value
+  }
   return (
     <main>
-      <Header titulo={titulo}/>
+      <Header props={props} />
       <section className='retornoLp'>
         {!!existsLP ? (
-          <LandingPages />
+          null
         ) : (
           <div className='div-existFalse'>
             <img className='imageLP' src={construcaosite} alt='imageLP'></img>

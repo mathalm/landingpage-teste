@@ -1,4 +1,5 @@
 .header-LP{
+  background-color: #ffffff;
   height: max-content;
   display: flex;
   justify-content: flex-end;
@@ -25,7 +26,7 @@
   height: 56px;
   width: 160px;
 }
-.divButtom{
+.divButtom-selecionado{
   background-color: rgb(255, 255, 255);
   color: #333333;
   border: none;
@@ -36,7 +37,9 @@
   font-size: 13px;
   text-transform: uppercase;
   cursor: pointer;
-
+}
+.noBorder{
+  border: none !important; 
 }
 .div-botao-proximo{
   width: 80px;
@@ -45,4 +48,10 @@
   align-items: center;
   justify-content: center;
   font-size: 22px;
+}
+.div-botoes-headers{
+  display: flex;
+}
+.MuiTabs-indicator{
+  border-bottom: solid 2px #F5845E;
 }

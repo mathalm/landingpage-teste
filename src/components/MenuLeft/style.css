@@ -5,7 +5,7 @@
 
   display: flex;
   margin: 0;
-padding: 0.5rem;
+  padding: 0.5rem;
   z-index: 1000;
   position: fixed;
   left: 252px;
@@ -28,15 +28,17 @@ padding: 0.5rem;
   width: 266px;
 }
 .nav-div-logo-spotter {
-    background-color: #394554;
+  width: max-content;
+  height: max-content;
+  background-color: #394554;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   height: max-content;
   position: sticky;
-top: 0;
-z-index: 1001;
+  top: 0;
+  z-index: 1001;
 }
 .div-lista-ferramentas {
   width: 100%;

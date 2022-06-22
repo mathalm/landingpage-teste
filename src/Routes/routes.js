@@ -28,7 +28,7 @@ export default function Mainroutes(){
             {/* Button Criar LP */}
             <Route path="/CriarLP" element={<CriarLP/>} />
             {/* Rotas das LP's prontas */}
-            <Route path="/LpEducacao" element={<LpEducacao/>} />
+            <Route path="/Layout/Ebook" element={<LpEducacao/>} />
 
         </Routes>
     )
