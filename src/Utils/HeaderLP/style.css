@@ -1,12 +1,11 @@
 .header-LP{
-  background-color: #ffffff;
-  height: max-content;
+  height: 10rem;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
 }
 .div-titulo{
-  height: 70px;
+  height: 100px;
   display: flex;
   align-items: center;
   padding-left: 40px;
@@ -15,13 +14,7 @@
   font-weight: 300;
   font-size: 28px;
 }
-.div-barra{
-  background-color: #ffffff;
-  height: 56px;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
-  display: flex;
-  justify-content: space-between;
-}
+
 .buttonHeader{
   height: 56px;
   width: 160px;
@@ -49,9 +42,28 @@
   justify-content: center;
   font-size: 22px;
 }
-.div-botoes-headers{
-  display: flex;
-}
+
 .MuiTabs-indicator{
   border-bottom: solid 2px #F5845E;
+}
+.div-titulo-edicao-layout{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.div-titulo-edicao-layout .BsPencil{
+  margin-left: 10px;
+  cursor: pointer;
+}
+.div-botao-voltar-layout{
+  background-color: rgba(18, 9, 9, 0.144);
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  color: rgba(0, 0, 0, 0.418);
+  font-size: 22px;
+  margin-right: 5px;
 }
