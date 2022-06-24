@@ -32,20 +32,17 @@ function Header({ props }) {
     return (
       botoes.map((botao, index) => {
         return (
-          <Tab label={botao} value={index.toString()} key={index} sx={{ fontSize: '13px', fontWeight: '500', padding: "0 24px",height:'56px'   }} />
+          <Tab label={botao} value={index.toString()} key={index} sx={{ fontSize: '13px', fontWeight: '500', padding: "0 24px", height: '56px' }} />
         )
       })
     )
   }
   const handleVerificarUrlParaAdicionarSeta = () => {
-    console.log(urlAtual);
-    console.log(urlAtual.search('Layout'));
     if (urlAtual.search('Layout') > 0) {
-      console.log('aqui')
       return (
-        <Tooltip title="Próximo" placement="bottom" arrow onClick={handleEnviarInformacoesLandingPage}>
+        <Tooltip title="Próximo" placement="bottom" arrow onClick={handleEnviarInformacoesLandingPage}  sx={{ height:'max-content'}}>
           <IconButton >
-            <GrLinkNext />
+            <GrLinkNext className='botao-layout-proximo' />
           </IconButton>
         </Tooltip>
       )
@@ -64,7 +61,14 @@ function Header({ props }) {
         </div>
       )
     } else {
-      return <h2>{titulo}</h2>
+      return (
+        <div className='div-titulo-edicao-layout'>
+          <div className='div-botao-voltar-layout' onClick={() => window.history.back()}>
+              <IoIosArrowBack />
+            </div>
+          <h2>{titulo}</h2>
+        </div>
+      )
     }
   }
 
@@ -75,7 +79,7 @@ function Header({ props }) {
         {handleRetornartitulo()}
       </div>
       <Box sx={{ width: '100%' }}>
-        <Box sx={{ borderColor: 'divider', display: "flex", justifyContent: "space-between", paddingRight: "1rem", backgroundColor: "#ffffff", height:'56px' }}  >
+        <Box sx={{ borderColor: 'divider', display: "flex", alignItems:"center", justifyContent: "space-between", paddingRight: "1rem", backgroundColor: "#ffffff", height: '56px' }}  >
           <Tabs
             value={value}
             onChange={handleChange}

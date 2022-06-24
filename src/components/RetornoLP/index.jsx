@@ -11,7 +11,6 @@ function RetornoLP() {
   const titulo = ['RetornoLP']
   const botoes = ['RetornoLP']
   const [value, setValue] = React.useState("0");
-  console.log(value);
   const props = {
     titulo: titulo,
     botoes: botoes,

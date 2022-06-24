@@ -11,6 +11,8 @@ function TemplateLpEducacao({setDadosConfiguracaoLandingPage}) {
   const [image, setImage] = useState();
   const [camposSelecionados, setCamposSelecionados] = useState([]);
   const tituloApresentacao = useRef('[Ebook]');
+  const subTituloApresentacao = useRef('Como estudar para a faculdade dos sonhos?');
+  const paragrafoApresentacao = useRef('Você está a um passo de viajar, realizar seu sonho de infância, mas ainda tem dificuldades em guardar dinheiro para a tão sonhada trip. Esse EBook foi feito para você!');
   const tituloEntradaDados = useRef('Preencha o formulário para receber novidades! 🤩');
 
   const propsCamposPersonalizados = {
@@ -20,12 +22,14 @@ function TemplateLpEducacao({setDadosConfiguracaoLandingPage}) {
 
   useEffect(() =>{
     setDadosConfiguracaoLandingPage({
-      tituloApresentacao:tituloApresentacao,
-      tituloEntradaDados:tituloEntradaDados,
-      camposSelecionados:camposSelecionados
+      tituloApresentacao:tituloApresentacao.current,
+      tituloEntradaDados:tituloEntradaDados.current,
+      camposSelecionados:camposSelecionados,
+      subTituloApresentacao:subTituloApresentacao.current,
+      paragrafoApresentacao:paragrafoApresentacao.current
     });
     
-  },[tituloApresentacao,tituloEntradaDados, camposSelecionados])
+  },[tituloApresentacao,tituloEntradaDados, camposSelecionados,subTituloApresentacao,paragrafoApresentacao])
 
   const handleCamposPersonalizadosEscolhidos = () => {
     return (
@@ -67,9 +71,9 @@ function TemplateLpEducacao({setDadosConfiguracaoLandingPage}) {
         <div className='div-cabecalho-lp-educacao-apresentacao'>
           <div>
             <textarea onChange={(e) => {tituloApresentacao.current = e.target.value}}  defaultValue={tituloApresentacao.current} className='textarea-titulo'></textarea>
-            <h4>Como estudar para a faculdade dos sonhos?</h4>
+            <textarea  onChange={(e) => {subTituloApresentacao.current = e.target.value}}  defaultValue={subTituloApresentacao.current} className="subtitulo-apresentacao"></textarea>
           </div>
-          <p>Você está a um passo de viajar, realizar seu sonho de infância, mas ainda tem dificuldades em guardar dinheiro para a tão sonhada trip. Esse EBook foi feito para você!</p>
+          <textarea  onChange={(e) => {paragrafoApresentacao.current = e.target.value}}  defaultValue={paragrafoApresentacao.current} className="paragrafo-apresentacao" ></textarea >
         </div>
         <div className='div-cabecalho-lp-educacao-entrada-dados'>
           <div className='div-textarea'>

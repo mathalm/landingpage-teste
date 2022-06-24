@@ -1,5 +1,5 @@
 .header-LP{
-  height: 10rem;
+  height: 8rem;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
@@ -66,4 +66,8 @@
   color: rgba(0, 0, 0, 0.418);
   font-size: 22px;
   margin-right: 5px;
+  cursor: pointer;
+}
+.botao-layout-proximo{
+  color: red !important;
 }

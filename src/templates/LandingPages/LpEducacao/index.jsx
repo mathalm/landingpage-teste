@@ -18,7 +18,7 @@ function LpEducacao() {
   const botoes = ['Layout', 'Configuração']
   const [dadosConfiguracaoLandingPage, setDadosConfiguracaoLandingPage] = useState({})
   const [value, setValue] = React.useState("0");
-  const [open, setOpen] = React.useState(true);//mudar aqui para habilitar coleta do nome
+  const [open, setOpen] = React.useState(false);//mudar aqui para habilitar coleta do nome
 
   const props = {
     titulo: titulo,
@@ -30,10 +30,12 @@ function LpEducacao() {
   }
 
   const handleClose = () => {
+    if(titulo.length < 3){
+      return
+    }
     setOpen(false);
   };
   const handleFecharModal = (e) =>{
-    console.log(e.key);
     if(e.key === "Enter"){
       setOpen(false);
     }
