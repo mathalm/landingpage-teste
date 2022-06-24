@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, {  useState } from 'react';
 import ConfiguracaoLandingPage from '../../../Utils/Configuracao';
 import Header from '../../../Utils/HeaderLP';
 import TemplateLpEducacao from './TemplateLpEducacao';
