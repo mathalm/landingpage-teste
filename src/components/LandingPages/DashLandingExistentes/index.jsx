@@ -43,6 +43,7 @@ function DashLandingExistentes() {
             type="search"
             variant="standard"
             fullWidth
+            sx={{fontSize:"10px"}}
           />
         </div>
         <div className='div-filtro-buscar-landing-pages'>

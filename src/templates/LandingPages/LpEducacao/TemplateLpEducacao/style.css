@@ -121,7 +121,6 @@ select:focus {
   box-shadow: 0 0 0 0;
   border: 0 none;
   outline: 0;
-  border: solid 1px rgba(0, 0, 0, 0.486);
 }
 
 .div-cabecalho-lp-educacao-entrada-dados textarea:focus,
@@ -130,7 +129,6 @@ select:focus {
   box-shadow: 0 0 0 0;
   border: 0 none;
   outline: 0;
-  border: solid 1px rgba(0, 0, 0, 0.486);
 }
 .div-engloba-textfield {
   /* background-color: red; */
