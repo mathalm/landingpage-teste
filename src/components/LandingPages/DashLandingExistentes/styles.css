@@ -1,0 +1,58 @@
+.dash-lp-existentes {
+  width: 100%;
+  height: 100%;
+}
+.div-buscar-landing-pages {
+  background-color: #ffffff;
+  width: 100%;
+  height: 5rem;
+  margin: 1rem 0;
+  border-radius: 2px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.192);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+.div-textField-buscar-landing-pages{
+  width: 21rem;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 1.5rem;
+}
+.div-filtro-buscar-landing-pages{
+  width: 3rem;
+}
+.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.096) !important;
+}
+.botao-acoes-landing-page {
+  color: rgb(116, 116, 116);
+  cursor: pointer;
+}
+.botao-acoes-landing-page:hover {
+  color: rgb(39, 39, 39);
+  cursor: pointer;
+}
+/* divisor */
+.MuiDivider-root {
+  margin-bottom: 0px !important;
+}
+.menu-item-acoes-landing-page{
+  color: rgba(90, 90, 90, 0.993) !important;
+  width: auto !important;
+  height: 40px !important;
+  overflow: hidden !important;
+  font-size: 1rem !important;
+  box-sizing: content-box !important;
+  font-weight: 400 !important;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+  line-height: 1.5em !important;
+  white-space: nowrap !important;
+
+}
+.span-menu-item-acoes-landing-page{
+  margin-left: 1rem;
+}

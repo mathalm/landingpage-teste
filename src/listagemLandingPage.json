@@ -1,0 +1,50 @@
+[
+  {
+    "nome": "Teste Matheus",
+    "dataDeCriacao": "25/06/2022",
+    "ativo": true,
+    "leads": 35
+  },
+  {
+    "nome": "Teste 2",
+    "dataDeCriacao": "22/06/2022",
+    "ativo": false,
+    "leads": 12
+  },
+  {
+    "nome": "Educa Lp",
+    "dataDeCriacao": "19/06/2022",
+    "ativo": true,
+    "leads": 26
+  },
+  {
+    "nome": "Testando 2",
+    "dataDeCriacao": "13/06/2022",
+    "ativo": true,
+    "leads": 10
+  },
+  {
+    "nome": "Teste Lp",
+    "dataDeCriacao": "11/06/2022",
+    "ativo": false,
+    "leads": 9
+  },
+  {
+    "nome": "Hand-up",
+    "dataDeCriacao": "11/06/2022",
+    "ativo": true,
+    "leads": 31
+  },
+  {
+    "nome": "Olá Teste 2",
+    "dataDeCriacao": "09/06/2022",
+    "ativo": true,
+    "leads": 42
+  },
+  {
+    "nome": "blabla 2",
+    "dataDeCriacao": "05/06/2022",
+    "ativo": true,
+    "leads": 64
+  }
+]

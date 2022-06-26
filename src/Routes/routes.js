@@ -5,8 +5,7 @@ import {
 } from 'react-router-dom'
 import Secundary from '../components/Secundary';
 import InitialPage from '../components/InitialPage';
-import RetornoLP from '../components/RetornoLP'
-// import LandingPages from '../templates/LandingPages';
+import LandingPages from '../components/LandingPages'
 import CriarLP from '../templates/CriarLP';
 import LpEducacao from '../templates/LandingPages/LpEducacao';
 export default function Mainroutes(){
@@ -24,7 +23,7 @@ export default function Mainroutes(){
             <Route path="/Telefonia" element={<Secundary/>} />
             <Route path="/Workflow" element={<Secundary/>} />
             <Route path="/Configuracoes" element={<Secundary/>} />
-            <Route path="/RetornoLP" element={<RetornoLP/>} />
+            <Route path="/LandingPages" element={<LandingPages/>} />
             {/* Button Criar LP */}
             <Route path="/CriarLP" element={<CriarLP/>} />
             {/* Rotas das LP's prontas */}

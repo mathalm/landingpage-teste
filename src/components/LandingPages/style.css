@@ -1,10 +1,11 @@
 .retornoLp{
  width: 100%;
- height: 25rem;
+ height: max-content;
  display: flex;
  flex-direction: column;
  justify-content: center;
  align-items: center;
+ padding-bottom: 1.5rem;
 }
 .div-existFalse{
   /* background-color: #286090; */
@@ -24,9 +25,9 @@
 @media screen and (max-width:600px) {
  .imageLP{
   width: 300px;
-  
  }
- 
 }
-.buttonExists{
+.div-existe-true{
+  width: 95%;
+  height: 100%;
 }

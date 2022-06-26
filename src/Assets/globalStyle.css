@@ -9,7 +9,9 @@
 }
 .App {
   background-color: #F5F5F5;
-  min-height: 90vh;
+  min-height: 95vh;
+  height: max-content;
   margin-left: 51px;
   margin-top: 55px;
 }
+

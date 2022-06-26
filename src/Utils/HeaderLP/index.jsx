@@ -8,6 +8,8 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { BsPencil } from 'react-icons/bs';
 import { IoIosArrowBack } from 'react-icons/io';
+import { AiFillFileAdd } from 'react-icons/ai';
+import { useNavigate } from "react-router-dom";
 
 
 function Header({ props }) {
@@ -18,6 +20,7 @@ function Header({ props }) {
   const value = props.value
   const setValue = props.setValue
   const setOpen = props.setOpen
+  const navigate = useNavigate();
 
   const handleEnviarInformacoesLandingPage = () => {
     console.log('teste');
@@ -43,6 +46,18 @@ function Header({ props }) {
         <Tooltip title="Próximo" placement="bottom" arrow onClick={handleEnviarInformacoesLandingPage}  sx={{ height:'max-content'}}>
           <IconButton >
             <GrLinkNext className='botao-layout-proximo' />
+          </IconButton>
+        </Tooltip>
+      )
+    }
+
+  }
+  const handleVerificarUrlParaAdicionarBotaoDeCriar = () => {
+    if (urlAtual.search('LandingPages') > 0) {
+      return (
+        <Tooltip title="Criar Landing Page" placement="bottom" arrow  sx={{ height:'max-content'}}>
+          <IconButton onClick={() => navigate("/CriarLP")}>
+            <AiFillFileAdd className='botao-layout-proximo' color='black' />
           </IconButton>
         </Tooltip>
       )
@@ -89,6 +104,7 @@ function Header({ props }) {
             {handleRenderizarBotoes()}
           </Tabs>
           {handleVerificarUrlParaAdicionarSeta()}
+          {handleVerificarUrlParaAdicionarBotaoDeCriar()}
         </Box>
       </Box>
     </header>

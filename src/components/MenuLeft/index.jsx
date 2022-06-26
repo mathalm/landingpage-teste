@@ -121,7 +121,7 @@ function MenuLeft() {
           </div>
           <div
             className="div-item-menu-left"
-            onClick={() => navigate("/RetornoLP")}
+            onClick={() => navigate("/LandingPages")}
           >
             <RiPagesFill className="icon-span" size="25px" />
             <div className="div-span-name-menu">
