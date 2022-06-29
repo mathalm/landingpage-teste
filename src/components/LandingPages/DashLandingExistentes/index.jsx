@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles.css';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -8,29 +8,89 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { RiArrowUpDownFill } from 'react-icons/ri';
-import listagemlandingPagesApi from '../../../listagemLandingPage.json'
+import listagemLandingPagesApi from '../../../listagemLandingPage.json'
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { MdKeyboardArrowDown } from 'react-icons/md'
 import { RiPencilFill } from 'react-icons/ri'
 import { HiDuplicate } from 'react-icons/hi'
 import { AiFillDatabase, AiOutlineSearch } from 'react-icons/ai'
-import { IoMdTrash} from 'react-icons/io'
 import { RiFilter3Line } from 'react-icons/ri'
 import Divider from '@mui/material/Divider';
 import TextField from '@mui/material/TextField';
+import ExcluirLandingPage from '../../../Utils/ExcluirLandingPage';
 
 function DashLandingExistentes() {
 
-  const listagemlandingPages = listagemlandingPagesApi;
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [valorFiltro, setvalorFiltro] = useState('');
+  const [landingPages, setLandingPages] = useState([]);
+  const [idLandingPage, setIdLandingPage] = useState();
+
+  const props = {
+    landingPages:landingPages,
+    setLandingPages:setLandingPages,
+    idLandingPage:idLandingPage,
+    setAnchorEl:setAnchorEl
+  }
+
   const open = Boolean(anchorEl);
-  const handleClick = (event) => {
+  const handleClick = (id, event) => {
     setAnchorEl(event.currentTarget);
+    setIdLandingPage(id)
+
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  useEffect(() => {
+    setLandingPages(listagemLandingPagesApi)
+  }, [])
+
+  useEffect(() => {
+    if (valorFiltro.length > 3) {
+      const filtroListagemLandingPage = listagemLandingPagesApi.filter((obj) => {
+        if ("nome" in obj && obj.nome.toLowerCase().includes(valorFiltro.toLowerCase())) {
+          return true;
+        } else {
+          return false;
+        }
+      })
+      setLandingPages(filtroListagemLandingPage);
+    } else {
+      setLandingPages(listagemLandingPagesApi);
+    }
+  }, [valorFiltro])
+
+  const handleAbrirMenuOpcoes = () => {
+    return (
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+        sx={{ boxShadow: 'none' }}
+      >
+        <MenuItem className="menu-item-acoes-landing-page" onClick={handleClose}>
+          <RiPencilFill size={24} /> <span className='span-menu-item-acoes-landing-page'>Editar</span>
+        </MenuItem>
+        <MenuItem className="menu-item-acoes-landing-page" onClick={handleClose}>
+          <HiDuplicate size={24} /> <span className='span-menu-item-acoes-landing-page'>Duplicar</span>
+        </MenuItem>
+        <MenuItem className="menu-item-acoes-landing-page" onClick={handleClose}>
+          <AiFillDatabase size={24} /> <span className='span-menu-item-acoes-landing-page'>Levantamento</span>
+        </MenuItem>
+        <Divider />
+        <MenuItem className="menu-item-acoes-landing-page">
+          <ExcluirLandingPage props={props} />
+        </MenuItem>
+      </Menu>
+    )
+  }
 
   return (
     <section className='dash-lp-existentes'>
@@ -43,7 +103,8 @@ function DashLandingExistentes() {
             type="search"
             variant="standard"
             fullWidth
-            sx={{fontSize:"10px"}}
+            sx={{ fontSize: "10px" }}
+            onChange={(e) => setvalorFiltro(e.target.value)}
           />
         </div>
         <div className='div-filtro-buscar-landing-pages'>
@@ -62,7 +123,7 @@ function DashLandingExistentes() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {listagemlandingPages.map((landingPage, index) => {
+            {landingPages.map((landingPage, index) => {
               return (
                 <TableRow key={index}>
                   <TableCell align="left">{landingPage.nome}</TableCell>
@@ -71,36 +132,13 @@ function DashLandingExistentes() {
                   <TableCell align="center">{landingPage.dataDeCriacao}</TableCell>
                   <TableCell align="left">
                     <div className='acoes-tabela-usuario'>
-                      <MdKeyboardArrowDown size={25} onClick={handleClick} className="botao-acoes-landing-page" />
-                      <Menu
-                        id="basic-menu"
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleClose}
-                        MenuListProps={{
-                          'aria-labelledby': 'basic-button',
-                        }}
-                        sx={{ boxShadow: 'none' }}
-                      >
-                        <MenuItem className="menu-item-acoes-landing-page" onClick={handleClose}>
-                          <RiPencilFill size={24} /> <span className='span-menu-item-acoes-landing-page'>Editar</span>
-                        </MenuItem>
-                        <MenuItem className="menu-item-acoes-landing-page" onClick={handleClose}>
-                          <HiDuplicate size={24} /> <span className='span-menu-item-acoes-landing-page'>Duplicar</span>
-                        </MenuItem>
-                        <MenuItem className="menu-item-acoes-landing-page" onClick={handleClose}>
-                          <AiFillDatabase size={24} /> <span className='span-menu-item-acoes-landing-page'>Levantamento</span>
-                        </MenuItem>
-                        <Divider />
-                        <MenuItem className="menu-item-acoes-landing-page" onClick={handleClose}>
-                          <IoMdTrash size={24} /> <span className='span-menu-item-acoes-landing-page'>Excluir</span>
-                        </MenuItem>
-                      </Menu>
+                      <MdKeyboardArrowDown size={25} onClick={(e) => handleClick(landingPage.id, e)} className="botao-acoes-landing-page" />
                     </div>
                   </TableCell>
                 </TableRow>
               )
             })}
+            {handleAbrirMenuOpcoes()}
           </TableBody>
         </Table>
       </TableContainer>
