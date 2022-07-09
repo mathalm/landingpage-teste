@@ -91,7 +91,7 @@ function Header({ props }) {
   return (
     <header className='header-LP'>
       <div className='div-titulo'>
-        {handleRetornartitulo()}
+        {handleRetornartitulo()} 
       </div>
       <Box sx={{ width: '100%' }}>
         <Box sx={{ borderColor: 'divider', display: "flex", alignItems:"center", justifyContent: "space-between", paddingRight: "1rem", backgroundColor: "#ffffff", height: '56px' }}  >

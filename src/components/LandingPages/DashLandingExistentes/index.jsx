@@ -19,19 +19,23 @@ import { RiFilter3Line } from 'react-icons/ri'
 import Divider from '@mui/material/Divider';
 import TextField from '@mui/material/TextField';
 import ExcluirLandingPage from '../../../Utils/ExcluirLandingPage';
+import { useNavigate } from "react-router-dom";
 
 function DashLandingExistentes() {
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [valorFiltro, setvalorFiltro] = useState('');
   const [landingPages, setLandingPages] = useState([]);
+  const [landingPagesInical, setLandingPagesInicial] = useState([]);
   const [idLandingPage, setIdLandingPage] = useState();
+  const navigate = useNavigate();
 
   const props = {
     landingPages:landingPages,
     setLandingPages:setLandingPages,
     idLandingPage:idLandingPage,
-    setAnchorEl:setAnchorEl
+    setAnchorEl:setAnchorEl,
+    setLandingPagesInicial:setLandingPagesInicial
   }
 
   const open = Boolean(anchorEl);
@@ -45,20 +49,23 @@ function DashLandingExistentes() {
   };
 
   useEffect(() => {
-    setLandingPages(listagemLandingPagesApi)
+    setLandingPages(listagemLandingPagesApi);
+    setLandingPagesInicial(listagemLandingPagesApi);
   }, [])
 
   useEffect(() => {
     if (valorFiltro.length > 3) {
-      const filtroListagemLandingPage = listagemLandingPagesApi.filter((obj) => {
+      const filtroListagemLandingPage = landingPages.filter((obj) => {
         if ("nome" in obj && obj.nome.toLowerCase().includes(valorFiltro.toLowerCase())) {
           return true;
         } else {
           return false;
         }
       })
+      console.log('Aqui');
       setLandingPages(filtroListagemLandingPage);
     } else {
+      console.log('setou');
       setLandingPages(listagemLandingPagesApi);
     }
   }, [valorFiltro])
@@ -75,7 +82,7 @@ function DashLandingExistentes() {
         }}
         sx={{ boxShadow: 'none' }}
       >
-        <MenuItem className="menu-item-acoes-landing-page" onClick={handleClose}>
+        <MenuItem className="menu-item-acoes-landing-page" onClick={()=> navigate("/LandingPages/LandingPage")}>
           <RiPencilFill size={24} /> <span className='span-menu-item-acoes-landing-page'>Editar</span>
         </MenuItem>
         <MenuItem className="menu-item-acoes-landing-page" onClick={handleClose}>

@@ -8,6 +8,7 @@ import InitialPage from '../components/InitialPage';
 import LandingPages from '../components/LandingPages'
 import CriarLP from '../templates/CriarLP';
 import LpEducacao from '../templates/LandingPages/LpEducacao';
+import LandingPage from '../templates/LandingPage';
 export default function Mainroutes(){
     return(
         <Routes>
@@ -28,6 +29,9 @@ export default function Mainroutes(){
             <Route path="/CriarLP" element={<CriarLP/>} />
             {/* Rotas das LP's prontas */}
             <Route path="/Layout/Ebook" element={<LpEducacao/>} />
+            {/* Unica Landing Page */}
+            <Route path="/LandingPages/LandingPage" element={<LandingPage/>} />
+
 
         </Routes>
     )
