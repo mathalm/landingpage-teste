@@ -10,7 +10,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
 
-function ListagemCamposPersonalizados({propsCamposPersonalizados}) {
+function ListagemCamposPersonalizados({ propsCamposPersonalizados }) {
   const [open, setOpen] = useState(false);
   const [camposPersonalizados, setCamposPersonalizados] = useState([]);
   const camposSelecionados = propsCamposPersonalizados.camposSelecionados;
@@ -18,6 +18,7 @@ function ListagemCamposPersonalizados({propsCamposPersonalizados}) {
 
   const handleClickOpen = () => {
     setOpen(true);
+    handleBuscarCamposPersonalizados();
   };
 
   const handleClose = () => {
@@ -25,9 +26,13 @@ function ListagemCamposPersonalizados({propsCamposPersonalizados}) {
   };
 
   useEffect(() => {
+
+  }, []);
+  const handleBuscarCamposPersonalizados = () => {
+    if(camposPersonalizados.length > 1) {return}
     const headers = new Headers();
     headers.append("Content-Type", "application/son");
-    headers.append("token_exact", "f930e289-4dbb-4f73-bd27-f733d1d7d958");
+    headers.append("token_exact", "a042af31-8bf1-42df-a545-8a92650b0eac");
     const options = {
       method: 'GET',
       headers: headers,
@@ -36,7 +41,7 @@ function ListagemCamposPersonalizados({propsCamposPersonalizados}) {
       .then(response => response.json())
       .then(results => setCamposPersonalizados(results.value))
       .catch(error => console.log(error))
-  }, []);
+  }
 
   const handleRetornarCamposPersonalizadosDisponíveis = () => {
     return (

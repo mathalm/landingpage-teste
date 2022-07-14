@@ -8,13 +8,14 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { BsPencil } from 'react-icons/bs';
 import { IoIosArrowBack } from 'react-icons/io';
-import { AiFillFileAdd } from 'react-icons/ai';
+import { AiFillFileAdd, AiTwotoneEdit } from 'react-icons/ai';
 import { useNavigate } from "react-router-dom";
-
 
 function Header({ props }) {
 
-  const titulo = props.titulo
+  const titulo = props.titulo 
+  const statusLandingPage = props.statusLandingPage
+  const identificador = props.identificador
   const botoes = props.botoes
   const dadosConfiguracaoLandingPage = props.dadosConfiguracaoLandingPage
   const value = props.value
@@ -23,7 +24,6 @@ function Header({ props }) {
   const navigate = useNavigate();
 
   const handleEnviarInformacoesLandingPage = () => {
-    console.log('teste');
     console.log(dadosConfiguracaoLandingPage);
   }
   var urlAtual = window.location.href;
@@ -57,7 +57,15 @@ function Header({ props }) {
       return (
         <Tooltip title="Criar Landing Page" placement="bottom" arrow  sx={{ height:'max-content'}}>
           <IconButton onClick={() => navigate("/CriarLP")}>
-            <AiFillFileAdd className='botao-layout-proximo' color='black' />
+            <AiFillFileAdd className='botao-layout-proximo-editar' color='#070707a6' />
+          </IconButton>
+        </Tooltip>
+      )
+    }else if(urlAtual.search('LandingPage/') > 0){
+      return (
+        <Tooltip title="Editar Landing Page" placement="bottom" arrow  sx={{ height:'max-content'}}>
+          <IconButton onClick={() => navigate("/CriarLP")}>
+            <AiTwotoneEdit className='botao-layout-proximo-editar' color='#070707a6' />
           </IconButton>
         </Tooltip>
       )
@@ -65,7 +73,7 @@ function Header({ props }) {
 
   }
   const handleRetornartitulo = () => {
-    if (urlAtual.search('Layout') > 0) {
+    if (urlAtual.search('Layout') > 0 ) {
       return (
         <div className='div-titulo-edicao-layout'>
           <div className='div-botao-voltar-layout' onClick={() => window.history.back()}>
@@ -73,6 +81,23 @@ function Header({ props }) {
           </div>
           <h2>{titulo}</h2>
           <BsPencil className='BsPencil' fontSize={13} onClick={() => setOpen(true)} />
+        </div>
+      )
+    } else if(urlAtual.search('LandingPage/') > 0){
+      return (
+        <div>
+          <div className='div-titulo-edicao-layout div-titulo-edicao-layout-lp'>
+            <div className='div-botao-voltar-layout' onClick={() => window.history.back()}>
+              <IoIosArrowBack />
+            </div>
+            <h2>{titulo}</h2>
+            <BsPencil className='BsPencil' fontSize={13} onClick={() => setOpen(true)} />
+          </div>
+          <div className='div-status-landingpage'>
+            <span>{statusLandingPage ? "Ativado" : "Desativado"}</span>
+            <span><a href="https://www.chartjs.org/docs/latest/samples/bar/vertical.html" rel="noopener noreferrer" target="_blank">https://www.chartjs.org/docs/latest/samples/bar/vertical.html</a></span>
+            <span>{identificador}</span>
+          </div>
         </div>
       )
     } else {
@@ -89,7 +114,7 @@ function Header({ props }) {
 
 
   return (
-    <header className='header-LP'>
+    <header className={urlAtual.search('LandingPage/') > 0 ? 'header-especifica-landingpage' :'header-LP'}>
       <div className='div-titulo'>
         {handleRetornartitulo()} 
       </div>

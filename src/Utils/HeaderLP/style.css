@@ -1,8 +1,16 @@
 .header-LP{
-  height: 8rem;
+  background-color: #ffffff;
+  height: 7.5rem;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+}
+.header-especifica-landingpage{
+  background-color: #ffffff;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  height: 8.5rem;
 }
 .div-titulo{
   height: 100px;
@@ -41,6 +49,7 @@
   align-items: center;
   justify-content: center;
   font-size: 22px;
+  color: #333333;
 }
 
 .MuiTabs-indicator{
@@ -50,6 +59,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: max-content;
+  margin-bottom: 5px;
 }
 .div-titulo-edicao-layout .BsPencil{
   margin-left: 10px;
@@ -67,4 +78,25 @@
   font-size: 22px;
   margin-right: 5px;
   cursor: pointer;
+}
+
+.div-status-landingpage{
+  /* background-color: #3333331a; */
+  margin-top: 10px;
+  height: 1rem;
+  display: flex;
+}
+.div-status-landingpage span{
+  background-color: #3333331a;
+  margin: 0 1rem;
+  font-size: 0.7rem;
+  padding: 5px;
+  border-radius: 2px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  
+}
+.div-status-landingpage a:visited{
+  color: inherit;
 }

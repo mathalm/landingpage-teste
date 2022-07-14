@@ -30,7 +30,6 @@ function ExcluirLandingPage({ props }) {
       if ("id" in obj && obj.id !== idLandingPage) {
         return true
       } else {
-        console.log("false");
         return false
       }
     })

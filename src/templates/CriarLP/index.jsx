@@ -9,7 +9,6 @@ function CriarLP() {
   const botoes = ['Criar'];
   const navigate = useNavigate();
   const [value, setValue] = React.useState("0");
-  console.log(value);
   const props = {
     titulo: titulo,
     botoes: botoes,
