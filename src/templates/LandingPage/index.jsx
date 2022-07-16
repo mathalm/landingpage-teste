@@ -15,12 +15,14 @@ import CorpoLandingPage from './CorpoLandingPage';
 function LandingPage() {
   const landingPage = useRef([]);
   const { LandingPageId } = useParams();
-  const [titulo, setTitulo] = useState('');
-  const [statusLandingPage, setStatusLandingPage] = useState(false);
-  const [identificador, setIdentificador] = useState('');
   const botoes = ['LandingPage'];
+  const [titulo, setTitulo] = useState('');
   const [value, setValue] = React.useState("0");
   const [open, setOpen] = React.useState(false);//mudar aqui para habilitar coleta do nome
+  const [identificador, setIdentificador] = useState('');
+  const [textoDeAviso, setTextoDeAviso] = React.useState("");
+  const [erroTextField, setErroTextField] = React.useState(false);
+  const [statusLandingPage, setStatusLandingPage] = useState(false);
 
   const props = {
     titulo: titulo,
@@ -31,16 +33,30 @@ function LandingPage() {
     setValue: setValue,
     setOpen: setOpen,
   }
-
+  var teste = { 
+    error: erroTextField ,
+    helperText : textoDeAviso
+  }
   const handleClose = () => {
-    if(titulo.length < 3){
+    if (titulo.length <= 3) {
+      setTextoDeAviso("Nome deve conter 4 ou mais caracteres.")
+      setErroTextField(true)
       return
     }
     setOpen(false);
+    setTextoDeAviso("")
+    setErroTextField(false);
   };
-  const handleFecharModal = (e) =>{
-    if(e.key === "Enter"){
+  const handleFecharModal = (e) => {
+    if (e.key === "Enter") {
+      if (titulo.length <= 3) {
+        setTextoDeAviso("Nome deve conter 4 ou mais caracteres.")
+        setErroTextField(true)
+        return
+      }
+      setTextoDeAviso("")
       setOpen(false);
+      setErroTextField(false);
     }
   }
 
@@ -55,7 +71,6 @@ function LandingPage() {
       }
     )
     landingPage.current = buscarLandingPage[0];
-    console.log('teste');
     handleSetarInformacoes()
   }, [])
 
@@ -71,7 +86,7 @@ function LandingPage() {
       <TabContext value={value}>
         <Header props={props} />
         <TabPanel value="0" index={0} sx={{ padding: 0 }}>
-          <CorpoLandingPage/>
+          <CorpoLandingPage props={props}/>
         </TabPanel>
         <TabPanel value="1" index={1} sx={{ padding: 0 }}>
           <p>teste</p>
@@ -93,6 +108,7 @@ function LandingPage() {
             maxLength={20}
             onChange={(e) => setTitulo(e.target.value)}
             onKeyDown={(e) => handleFecharModal(e)}
+            {...teste}
             inputProps={{
               autoComplete: 'new-password',
               form: {

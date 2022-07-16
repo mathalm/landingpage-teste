@@ -12,7 +12,7 @@ function ExcluirLandingPage({ props }) {
   const landingPages = props.landingPages
   const setLandingPages = props.setLandingPages
   const setAnchorEl = props.setAnchorEl
-  const setLandingPagesInicial = props.setLandingPagesInicial
+  // const setLandingPagesInicial = props.setLandingPagesInicial
 
   const [open, setOpen] = React.useState(false);
 
@@ -34,7 +34,7 @@ function ExcluirLandingPage({ props }) {
       }
     })
     setLandingPages(landingPageExcluida);
-    setLandingPagesInicial(landingPageExcluida);
+    // setLandingPagesInicial(landingPageExcluida);
     setAnchorEl(null)
   }
 

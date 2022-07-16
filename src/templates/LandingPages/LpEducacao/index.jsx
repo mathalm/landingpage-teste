@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import ConfiguracaoLandingPage from '../../../Utils/Configuracao';
 import Header from '../../../Utils/HeaderLP';
 import TemplateLpEducacao from './TemplateLpEducacao';
@@ -13,11 +13,13 @@ import DialogTitle from '@mui/material/DialogTitle';
 import './style.css'
 
 function LpEducacao() {
-  const [titulo, setTitulo]  = useState('')
+  const [titulo, setTitulo] = useState('')
 
   const botoes = ['Layout', 'Configuração']
   const [dadosConfiguracaoLandingPage, setDadosConfiguracaoLandingPage] = useState({})
   const [value, setValue] = React.useState("0");
+  const [erroTextField, setErroTextField] = React.useState(false);
+  const [textoDeAviso, setTextoDeAviso] = React.useState("");
   const [open, setOpen] = React.useState(true);//mudar aqui para habilitar coleta do nome
 
   const props = {
@@ -28,18 +30,35 @@ function LpEducacao() {
     value: value,
     setOpen: setOpen
   }
+  var teste = { 
+    error: erroTextField ,
+    helperText : textoDeAviso
+  }
 
   const handleClose = () => {
-    if(titulo.length < 3){
+    if (titulo.length <= 3) {
+      setTextoDeAviso("Nome deve conter 4 ou mais caracteres.")
+      setErroTextField(true)
       return
     }
     setOpen(false);
+    setTextoDeAviso("")
+    setErroTextField(false);
   };
-  const handleFecharModal = (e) =>{
-    if(e.key === "Enter"){
+  const handleFecharModal = (e) => {
+    if (e.key === "Enter") {
+      if (titulo.length <= 3) {
+        setTextoDeAviso("Nome deve conter 4 ou mais caracteres.")
+        setErroTextField(true)
+        return
+      }
+      setTextoDeAviso("")
       setOpen(false);
+      setErroTextField(false);
     }
   }
+
+
   return (
     < section >
       <TabContext value={value}>
@@ -66,6 +85,8 @@ function LpEducacao() {
             value={titulo}
             onChange={(e) => setTitulo(e.target.value)}
             onKeyDown={(e) => handleFecharModal(e)}
+            autoFocus
+            {...teste}
             inputProps={{
               autoComplete: 'new-password',
               form: {
