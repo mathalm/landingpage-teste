@@ -7,7 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import listagemLandingPagesApi from '../../../listagemLandingPage.json'
+// import listagemLandingPagesApi from '../../../listagemLandingPage.json'
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { RiArrowUpDownFill } from 'react-icons/ri';
@@ -52,7 +52,16 @@ function DashLandingExistentes() {
   };
 
   useEffect(() => {
-    setLandingPages(listagemLandingPagesApi);
+    const options = {
+      method: 'GET'
+    }
+    fetch(`http://localhost:8080/landingPage`, options)
+      .then(response => response.json())
+      .then(results => setLandingPages(results))
+      .catch(error => console.log(error))
+
+    console.log(landingPages);
+
   }, [])
 
   useEffect(() => {
@@ -66,7 +75,7 @@ function DashLandingExistentes() {
       })
       setLandingPages(filtroListagemLandingPage);
     } else {
-      setLandingPages(listagemLandingPagesApi);
+      // setLandingPages(listagemLandingPagesApi);
     }
   }, [valorFiltro])
 
@@ -125,7 +134,7 @@ function DashLandingExistentes() {
           break;
       }
     } else {
-      
+
       switch (nomeDaColuna) {
         case 'nome':
           console.log('aqui ruim');
@@ -148,6 +157,17 @@ function DashLandingExistentes() {
       }
     }
   };
+
+  const handleConfigurarHora = (data) =>{
+    var novaData = new Date(data);
+    var dia = novaData.getDay() > 9 ? novaData.getDay() : '0'+ novaData.getDay();
+    var mes = novaData.getMonth()> 9 ? novaData.getMonth() : '0'+ novaData.getMonth();
+    var hora = novaData.getHours() > 9 ? novaData.getHours() : '0'+ novaData.getHours();
+    var minuto = novaData.getMinutes() > 9 ? novaData.getMinutes() : '0'+ novaData.getMinutes();
+    var dataConfigurada = `${dia}/${mes}/${novaData.getFullYear()} ${hora}:${minuto}`
+    return dataConfigurada
+
+  }
 
   return (
     <section className='dash-lp-existentes'>
@@ -185,8 +205,8 @@ function DashLandingExistentes() {
                 <TableRow key={index}>
                   <TableCell align="left">{landingPage.nome}</TableCell>
                   <TableCell align="center">{landingPage.ativo ? "Ativado" : "Desativado"}</TableCell>
-                  <TableCell align="center">{landingPage.leads}</TableCell>
-                  <TableCell align="center">{landingPage.dataDeCriacao}</TableCell>
+                  <TableCell align="center">{landingPage.quantidadeDeLeadsConvertidos}</TableCell>
+                  <TableCell align="center">{handleConfigurarHora(landingPage.createdAt)}</TableCell>
                   <TableCell align="left">
                     <div className='acoes-tabela-usuario'>
                       <BiDotsVerticalRounded size={25} onClick={(e) => handleClick(landingPage.id, e)} className="botao-acoes-landing-page" />

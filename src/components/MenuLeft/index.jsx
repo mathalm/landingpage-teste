@@ -31,7 +31,7 @@ function MenuLeft() {
         <div className="div-lista-ferramentas">
           <div
             className="div-item-menu-left"
-            onClick={() => navigate("/DashBoard")}
+            onClick={() => navigate("/")}
           >
             <MdDashboard className="icon-span" size="25px" />
             <div className="div-span-name-menu">
@@ -121,7 +121,7 @@ function MenuLeft() {
           </div>
           <div
             className="div-item-menu-left"
-            onClick={() => navigate("/LandingPages")}
+            onClick={() => navigate("/ListaLandingPages")}
           >
             <RiPagesFill className="icon-span" size="25px" />
             <div className="div-span-name-menu">

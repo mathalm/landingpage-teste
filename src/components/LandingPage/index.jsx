@@ -9,11 +9,12 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import listagemLandingPagesApi from '../../listagemLandingPage.json';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 import CorpoLandingPage from './CorpoLandingPage';
 
 function LandingPage() {
-  const landingPage = useRef([]);
+  const landingPage = useRef({ nome: '', status: 1, identificador: '' });
   const { LandingPageId } = useParams();
   const botoes = ['LandingPage'];
   const [titulo, setTitulo] = useState('');
@@ -23,6 +24,8 @@ function LandingPage() {
   const [textoDeAviso, setTextoDeAviso] = React.useState("");
   const [erroTextField, setErroTextField] = React.useState(false);
   const [statusLandingPage, setStatusLandingPage] = useState(false);
+  const [todasLandingPages, setTodasLandingPages] = useState([]);
+  const [estadoProgresso, setEstadoProgresso] = useState('flex');
 
   const props = {
     titulo: titulo,
@@ -33,35 +36,67 @@ function LandingPage() {
     setValue: setValue,
     setOpen: setOpen,
   }
-  var teste = { 
-    error: erroTextField ,
-    helperText : textoDeAviso
+  var teste = {
+    error: erroTextField,
+    helperText: textoDeAviso
   }
-  const handleClose = () => {
+  const handleAtualizarNomeLandingPage = async (novoNome) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var raw = JSON.stringify({
+      "nome": novoNome,
+      "status": 1,
+      "situacao": 1
+    });
+    const options = {
+      method: 'PUT',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    }
+    await fetch(`http://localhost:8080/landingPage/atualizar/${LandingPageId}`, options)
+      .then(response => response.json())
+      .catch(error => console.log(error))
+  }
+
+  const handleClose = async () => {
     if (titulo.length <= 3) {
-      setTextoDeAviso("Nome deve conter 4 ou mais caracteres.")
-      setErroTextField(true)
+      setTextoDeAviso("Nome deve conter 4 ou mais caracteres.");
+      setErroTextField(true);
       return
     }
+    handleAtualizarNomeLandingPage(titulo)
     setOpen(false);
-    setTextoDeAviso("")
+    setTextoDeAviso("");
     setErroTextField(false);
   };
   const handleFecharModal = (e) => {
     if (e.key === "Enter") {
       if (titulo.length <= 3) {
-        setTextoDeAviso("Nome deve conter 4 ou mais caracteres.")
-        setErroTextField(true)
+        setTextoDeAviso("Nome deve conter 4 ou mais caracteres.");
+        setErroTextField(true);
         return
       }
-      setTextoDeAviso("")
+      handleAtualizarNomeLandingPage(titulo)
       setOpen(false);
+      setTextoDeAviso("");
       setErroTextField(false);
     }
   }
 
   useEffect(() => {
-    const buscarLandingPage = listagemLandingPagesApi.filter(
+    const options = {
+      method: 'GET'
+    }
+    fetch(`http://localhost:8080/landingPage`, options)
+      .then(response => response.json())
+      .then(results => setTodasLandingPages(results))
+      .catch(error => console.log(error))
+  }, []);
+
+  useEffect(() => {
+    if (todasLandingPages.length === 0) { return }
+    const buscarLandingPage = todasLandingPages.filter(
       function (obj) {
         if ("id" in obj && obj.id.toString() === LandingPageId.toString()) {
           return true
@@ -72,13 +107,16 @@ function LandingPage() {
     )
     landingPage.current = buscarLandingPage[0];
     handleSetarInformacoes()
-  }, [])
+  }, [todasLandingPages]);
 
-  const handleSetarInformacoes = () =>{
+  const handleSetarInformacoes = () => {
     setTitulo(landingPage.current.nome);
-    setStatusLandingPage(landingPage.current.ativo);
-    setIdentificador(landingPage.current.nome.replace(/ /g, ""));
-    
+    setStatusLandingPage(landingPage.current.status);
+    setIdentificador(landingPage.current.identificador);
+    setTimeout(() => {
+      setEstadoProgresso('none')
+
+    }, 1000);
   }
 
   return (
@@ -86,7 +124,7 @@ function LandingPage() {
       <TabContext value={value}>
         <Header props={props} />
         <TabPanel value="0" index={0} sx={{ padding: 0 }}>
-          <CorpoLandingPage props={props}/>
+          <CorpoLandingPage props={props} />
         </TabPanel>
         <TabPanel value="1" index={1} sx={{ padding: 0 }}>
           <p>teste</p>
@@ -121,6 +159,9 @@ function LandingPage() {
           <Button onClick={handleClose}>Enviar</Button>
         </DialogActions>
       </Dialog>
+      <Box sx={{ position: 'fixed', top: 0, width: '100%', height: '100%', backgroundColor: '#14141434', padding: '0 50px 0 0', display: estadoProgresso, alignItems: 'center', justifyContent: 'center' }}>
+        <CircularProgress />
+      </Box>
     </section>
   );
 }

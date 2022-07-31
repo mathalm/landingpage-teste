@@ -18,6 +18,7 @@ function LandingPages() {
     setValue: setValue,
     value: value
   }
+  
   return (
     <main>
       <Header props={props} />

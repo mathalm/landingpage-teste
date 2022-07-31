@@ -3,16 +3,29 @@ import './styles.css';
 import { Line, Bar } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 import "./styles.css";
-import useBuscarLeadsParaGrafico from '../../../Hooks/BuscarLeads/index'
+// import useBuscarLeadsParaGrafico from '../../../Hooks/BuscarLeads/index'
 
 Chart.register(...registerables);
 
-function CorpoLandingPage({props}) {
-  
-  const [leads, setLeads] = useState([]);
+function CorpoLandingPage({ props }) {
 
-  // const teste = useBuscarLeadsParaGrafico(`https://api.exactsales.com.br/v3/Leads?&filter=origem eq ${teste}`) bug
-  const buscarLeads = useBuscarLeadsParaGrafico(`https://api.exactsales.com.br/v3/Leads?$filter=contains(source/value, '${props.identificador}')`)
+  const [leads, setLeads] = useState([]);
+  const [buscarLeads, setBuscarLeads] = useState([]);
+
+  useEffect(() => {
+    const headers = new Headers();
+    headers.append("Content-Type", "application/son");
+    headers.append("token_exact", "a042af31-8bf1-42df-a545-8a92650b0eac");
+    const options = {
+      method: 'GET',
+      headers: headers,
+    }
+    fetch(`https://api.exactsales.com.br/v3/Leads`, options)
+        .then(response => response.json())
+        .then(results => setBuscarLeads(results.value))
+        .catch(error => console.log(error))
+    
+  }, []);
 
   useEffect(() => {
     setLeads(buscarLeads.sort((dateA, dateB) => {
@@ -31,11 +44,11 @@ function CorpoLandingPage({props}) {
     return (
       leads.map((lead, index) => {
         var registro = new Date(lead.registerDate);
-        var dia = ("0" + (registro.getDate() )).slice(-2);
-        var mes = ("0" + (registro.getMonth() )).slice(-2);
+        var dia = ("0" + (registro.getDate())).slice(-2);
+        var mes = ("0" + (registro.getMonth())).slice(-2);
         var ano = registro.getFullYear();
-        var horas = ("0" + (registro.getHours() )).slice(-2);
-        var minutos = ("0" + (registro.getMinutes() )).slice(-2);
+        var horas = ("0" + (registro.getHours())).slice(-2);
+        var minutos = ("0" + (registro.getMinutes())).slice(-2);
         return (
           <div className='div-listando-leads' key={index}>
             <a href={`https://app.exactsales.com.br/spotter/detalhes-lead/${lead.id}`} target="_blank" rel="noopener noreferrer"><span>{lead.lead}</span></a>
@@ -82,7 +95,7 @@ function CorpoLandingPage({props}) {
         <div className='div-grafico-linha'>
           <Line
             data={{
-              labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set','Out','Nov','Dez'],
+              labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
               datasets: [
                 {
                   label: "Visitas",
@@ -194,7 +207,7 @@ function CorpoLandingPage({props}) {
                   label: "Visitas",
                   data: [25, 50, 39, 22, 38, 59, 46, 51, 45],
                   backgroundColor: [
-                    "rgba(126, 245, 115, 0.822)",
+                    "rgba(245, 115, 132, 0.822)",
                   ],
                   borderWidth: 3,
                 }
