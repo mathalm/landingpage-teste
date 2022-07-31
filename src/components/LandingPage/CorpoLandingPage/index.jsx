@@ -3,7 +3,6 @@ import './styles.css';
 import { Line, Bar } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 import "./styles.css";
-// import useBuscarLeadsParaGrafico from '../../../Hooks/BuscarLeads/index'
 
 Chart.register(...registerables);
 
@@ -60,8 +59,6 @@ function CorpoLandingPage({ props }) {
       })
     )
   }
-
-
 
   return (
     <main className='corpo-landing-page-main'>
