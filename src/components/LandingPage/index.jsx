@@ -16,7 +16,7 @@ import CorpoLandingPage from './CorpoLandingPage';
 function LandingPage() {
   const landingPage = useRef({ nome: '', status: 1, identificador: '' });
   const { LandingPageId } = useParams();
-  const botoes = ['LandingPage'];
+  const botoes = ['LandingPage','Configurações'];
   const [titulo, setTitulo] = useState('');
   const [value, setValue] = React.useState("0");
   const [open, setOpen] = React.useState(false);//mudar aqui para habilitar coleta do nome
@@ -127,7 +127,7 @@ function LandingPage() {
           <CorpoLandingPage props={props} />
         </TabPanel>
         <TabPanel value="1" index={1} sx={{ padding: 0 }}>
-          <p>teste</p>
+          botões de alterção será aqui.
         </TabPanel>
       </TabContext>
       <Dialog open={open}>

@@ -23,7 +23,7 @@ import ExcluirLandingPage from '../../../Utils/ExcluirLandingPage';
 import arraySort from 'array-sort'
 import { useNavigate } from "react-router-dom";
 
-function DashLandingExistentes() {
+function DashLandingExistentes({setEstadoProgresso}) {
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [valorFiltro, setvalorFiltro] = useState('');
@@ -60,7 +60,10 @@ function DashLandingExistentes() {
       .then(results => setLandingPages(results))
       .catch(error => console.log(error))
 
-    console.log(landingPages);
+      setTimeout(() => {
+        setEstadoProgresso('none')
+  
+      }, 2000);
 
   }, [])
 
@@ -170,55 +173,58 @@ function DashLandingExistentes() {
   }
 
   return (
-    <section className='dash-lp-existentes'>
-      <div className='div-buscar-landing-pages'>
-        <div className='div-textField-buscar-landing-pages'>
-          <AiOutlineSearch size={25} />
-          <TextField
-            id="standard-search"
-            label="Buscar por landing page"
-            type="search"
-            variant="standard"
-            fullWidth
-            sx={{ fontSize: "10px", margin: '0 5px' }}
-            onChange={(e) => setvalorFiltro(e.target.value)}
-          />
+    <section>
+      
+      <div className='dash-lp-existentes'>
+        <div className='div-buscar-landing-pages'>
+          <div className='div-textField-buscar-landing-pages'>
+            <AiOutlineSearch size={25} />
+            <TextField
+              id="standard-search"
+              label="Buscar por landing page"
+              type="search"
+              variant="standard"
+              fullWidth
+              sx={{ fontSize: "10px", margin: '0 5px' }}
+              onChange={(e) => setvalorFiltro(e.target.value)}
+            />
+          </div>
+          <div className='div-filtro-buscar-landing-pages'>
+            <RiFilter3Line size={25} />
+          </div>
         </div>
-        <div className='div-filtro-buscar-landing-pages'>
-          <RiFilter3Line size={25} />
-        </div>
+        <TableContainer component={Paper} className='table-container' >
+          <Table sx={{ minWidth: 200 }} aria-label="a dense table " stickyHeader size='medium'>
+            <TableHead>
+              <TableRow>
+                <TableCell align="left" onClick={() => { handleOrdernarColuna('nome') }}>Nome <RiArrowUpDownFill /></TableCell>
+                <TableCell align="center" onClick={() => { handleOrdernarColuna('status') }}>Status <RiArrowUpDownFill /></TableCell>
+                <TableCell align="center" onClick={() => { handleOrdernarColuna('leads') }}>Leads convertidos <RiArrowUpDownFill /></TableCell>
+                <TableCell align="center" onClick={() => { handleOrdernarColuna('dataDeCriacao') }}>Data de criação <RiArrowUpDownFill /></TableCell>
+                <TableCell align="left">Ações</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {landingPages.map((landingPage, index) => {
+                return (
+                  <TableRow key={index}>
+                    <TableCell align="left">{landingPage.nome}</TableCell>
+                    <TableCell align="center">{landingPage.status === 1 ? "Ativado" : "Desativado"}</TableCell>
+                    <TableCell align="center">{landingPage.quantidadeDeLeadsConvertidos}</TableCell>
+                    <TableCell align="center">{handleConfigurarHora(landingPage.createdAt)}</TableCell>
+                    <TableCell align="left">
+                      <div className='acoes-tabela-usuario'>
+                        <BiDotsVerticalRounded size={25} onClick={(e) => handleClick(landingPage.id, e)} className="botao-acoes-landing-page" />
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                )
+              })}
+              {handleAbrirMenuOpcoes()}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
-      <TableContainer component={Paper} className='table-container' >
-        <Table sx={{ minWidth: 200 }} aria-label="a dense table " stickyHeader size='medium'>
-          <TableHead>
-            <TableRow>
-              <TableCell align="left" onClick={() => { handleOrdernarColuna('nome') }}>Nome <RiArrowUpDownFill /></TableCell>
-              <TableCell align="center" onClick={() => { handleOrdernarColuna('status') }}>Status <RiArrowUpDownFill /></TableCell>
-              <TableCell align="center" onClick={() => { handleOrdernarColuna('leads') }}>Leads convertidos <RiArrowUpDownFill /></TableCell>
-              <TableCell align="center" onClick={() => { handleOrdernarColuna('dataDeCriacao') }}>Data de criação <RiArrowUpDownFill /></TableCell>
-              <TableCell align="left">Ações</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {landingPages.map((landingPage, index) => {
-              return (
-                <TableRow key={index}>
-                  <TableCell align="left">{landingPage.nome}</TableCell>
-                  <TableCell align="center">{landingPage.ativo ? "Ativado" : "Desativado"}</TableCell>
-                  <TableCell align="center">{landingPage.quantidadeDeLeadsConvertidos}</TableCell>
-                  <TableCell align="center">{handleConfigurarHora(landingPage.createdAt)}</TableCell>
-                  <TableCell align="left">
-                    <div className='acoes-tabela-usuario'>
-                      <BiDotsVerticalRounded size={25} onClick={(e) => handleClick(landingPage.id, e)} className="botao-acoes-landing-page" />
-                    </div>
-                  </TableCell>
-                </TableRow>
-              )
-            })}
-            {handleAbrirMenuOpcoes()}
-          </TableBody>
-        </Table>
-      </TableContainer>
     </section>
   );
 }

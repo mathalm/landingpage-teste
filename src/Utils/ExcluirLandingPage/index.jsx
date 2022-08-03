@@ -25,6 +25,15 @@ function ExcluirLandingPage({ props }) {
   };
 
   const handleExcluirLandingPage = () => {
+    console.log(idLandingPage);
+    const options = {
+      method: 'DELETE'
+    }
+
+    fetch(`http://localhost:8080/landingPage/deletar/${idLandingPage}`, options)
+    .then(response => response.json())
+    .then(results => console.log('LandingPage excluida'))
+    .catch(error => console.log(error))
 
     const landingPageExcluida = landingPages.filter((obj) => {
       if ("id" in obj && obj.id !== idLandingPage) {
@@ -34,7 +43,6 @@ function ExcluirLandingPage({ props }) {
       }
     })
     setLandingPages(landingPageExcluida);
-    // setLandingPagesInicial(landingPageExcluida);
     setAnchorEl(null)
   }
 
